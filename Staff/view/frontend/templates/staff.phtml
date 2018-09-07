@@ -1,0 +1,71 @@
+<h1> Update your profile</h1>
+<?php
+$staff = $block->getpart();
+?>
+
+
+
+<form action="<?php echo $block->getUrl('staff/index/save'); ?>" method="post">
+    <h2> Profile Status</h2>
+    <u style="color: blue">Wating for admin confirm</u>
+    <table width="400px">
+        <tr>
+            <td>Staff type</td>
+            <td>
+                <select name="member" id="memberpart" style="width=100px;">
+                    <option value="" selected>---Please your choose---</option>
+                    <?php
+                    foreach ($staff as $member) {
+                        echo "<option value=" . $member->getID() . ">" . $member->getStatus() . "</option>";
+                    }
+                    ?>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Nick Name</td>
+            <td><input type="text" name="nick_name" id="nick_name"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save" style="background: blue"></td>
+            <input type="text" id="id" name="id" hidden><br/>
+
+        </tr>
+    </table>
+
+</form>
+
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+    ], function ($, modal) {
+
+        $('#memberpart').change(function () {
+            var url = '<?php  echo $block->getUrl('staff/index/infor');?>';
+            var id = $('#memberpart').val();
+
+            var param = {
+                id: id
+            };
+
+            $.ajax({
+                showLoader: true,
+                url: url,
+                data: param,
+                type: "POST",
+                dataType: 'json'
+            }).done(function (data) {
+
+                $('#nick_name').attr('value', data.nick_name);
+
+
+            })
+        });
+
+
+    })
+
+</script>

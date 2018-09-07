@@ -1,0 +1,14 @@
+<?php
+        $product = $block->getProduct();
+//        $status = $block->getData('status');
+
+?>
+<?php $test = $product->getData('staff_type'); ?>
+<?php
+        if($test == 1){
+        echo 'Price:'.$product->getPrice().'(lv1)';
+        }elseif($test == 2){
+            echo 'Price:'.$product->getPrice().'(lv2)';
+        }
+
+?>

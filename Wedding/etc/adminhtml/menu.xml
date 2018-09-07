@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+                id="Magenest_Wedding::Wedding"
+                title="Wedding Magenest"
+                module="Magenest_Wedding"
+                sortOrder="50"
+                resource="Magenest_Wedding::Wedding"
+        />
+        <add
+                id="Magenest_Wedding::index"
+                title="Wedding"
+                module="Magenest_Wedding"
+                sortOrder="55"
+                parent="Magenest_Wedding::Wedding"
+                action="wedding/magenest/index"
+                resource="Magenest_Wedding::index"
+        />
+
+
+
+
+
+    </menu>
+</config>

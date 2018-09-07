@@ -1,0 +1,28 @@
+<h2>Parttime Form</h2>
+
+<form action="<?php echo $block->getUrl('Testpart/index/add'); ?>" method="post" id="form-validate">
+    Order_id: <input type="number" id="name" name="order"><br/>
+    Question : <input type="text" id="ques" name = "ques"></br>
+    <input type="submit" value="Submit" name="test">
+</form>
+
+<h2> Infor return</h2>
+
+
+<?php
+$part = $block->getpart();
+?>
+<h1> Infor parttime</h1><br/>
+ID:<select name="member" id="memberselect" style="width: 100px">
+    <option value="" selected></option>
+    <?php
+    foreach ($part as $member) {
+        echo "<option value=" . $member->getOrderId() . ">" . $member->getOrderId() . "</option>";
+    }
+    ?>
+</select>
+
+<!--<form method="post" action="--><?php //echo $block->getUrl('Testpart/index/edit'); ?><!--" id="form-validate">-->
+<!--    Question : <input type="text" id="ques" name="ques"><br/>-->
+<!---->
+<!--</form>-->
